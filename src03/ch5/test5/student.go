@@ -17,10 +17,28 @@ func newStudent(id int, name, class string) *student {
 	}
 }
 
-// 学员管理的类型，切片类型，用于存储每个学生信息的地址
-type studentMgr struct {
+type studentMgr struct { //管理学生集合的结构，提供增删改查方法
 	allStudent []*student
 }
+
+/*
+studentMgr 结构的设计好处
+
+封装数据
+将学生集合 (allStudent 切片) 和相关操作方法绑定在一起，符合面向对象设计原则。
+
+集中管理
+所有学生操作（增删改查）都通过 studentMgr 的方法完成，避免在 main 函数中散布业务逻辑。
+
+容量预分配
+通过 make([]*student, 0, 100) 预分配切片容量，减少内存重新分配次数。
+
+扩展性
+如需新增功能（如删除学生），只需在 studentMgr 中添加方法，无需修改主程序结构。
+
+数据隔离
+主程序 (main.go) 不直接操作学生数据，通过管理器接口访问，提高安全性。
+*/
 
 // newStudentMgr 是studentMgr类型的构造函数
 func newStudentMgr() *studentMgr {

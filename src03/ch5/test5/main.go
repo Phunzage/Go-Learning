@@ -54,7 +54,7 @@ func main() {
 			fmt.Println("添加成功")
 		case 2:
 			stu := getInput()
-			// 通过id比对，在切片找到学生后修改信息
+			// 通过用户输入的id比对，用新学生对象完全替换旧对象
 			sm.editStudent(stu)
 			fmt.Println("修改成功")
 		case 3:
