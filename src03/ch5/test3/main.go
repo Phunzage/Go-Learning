@@ -19,6 +19,9 @@ import (
 // 2.编辑时用索引 i-1，但ID可能不连续。
 // 3.直接打印结构体，可读性差。
 // 4.default 分支直接退出，应明确处理选项4。
+// 5.若写在同一个包内可以不需要引入
+
+// 改进版在 [test5](src03\ch5\test5\main.go)
 
 func ShowMenu() {
 	fmt.Println(`
