@@ -10,7 +10,7 @@ import (
 // 在函数形参中加入
 
 func f1(ch chan<- int) { // 此函数的ch只能接收
-	for i := 0; i < 100; i++ {
+	for i := range 100 {
 		ch <- i
 	}
 	close(ch)
