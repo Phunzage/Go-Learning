@@ -1,4 +1,4 @@
-// channel
+// channel 通道
 
 // 命名格式
 // var 变量名 chan 存储的变量类型
@@ -28,5 +28,8 @@ func main() {
 	// cap(ch1)	// 拿到通道的数量
 
 	fmt.Println(x)
+
+	// 关闭通道
+	close(ch1)
 
 }
