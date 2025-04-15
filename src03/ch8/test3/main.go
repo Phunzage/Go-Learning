@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 // 单向通道：只能完成发送或接收其中一个操作
@@ -33,7 +32,6 @@ func main() {
 	ch1 := make(chan int, 100)
 	ch2 := make(chan int, 100)
 
-	start := time.Now()
 	go f1(ch1)
 	go f2(ch1, ch2)
 
@@ -41,7 +39,5 @@ func main() {
 	for ret := range ch2 {
 		fmt.Println(ret)
 	}
-	dration := time.Since(start)
-	fmt.Println(dration)
 
 }
