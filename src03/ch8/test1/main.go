@@ -12,39 +12,39 @@ import (
 // 使用sync.WaitGroup
 // 对于一个goroutine
 
-var wg sync.WaitGroup
+var wait sync.WaitGroup
 
 func Hello() {
 	fmt.Println("Hello Goroutine")
 	// 通知goroutine把计数器 - 1
-	wg.Done()
+	wait.Done()
 }
 
 func main() { // 开启一个主goroutine来执行main函数
 
 	// 计数器 + 1
-	wg.Add(1)
+	wait.Add(1)
 	// 开启一个goroutine来执行Hello函数
 	go Hello()
 
 	fmt.Println("Hello Main Goroutine")
 	// 阻塞，等所有小弟都干完活之后才收兵
-	wg.Wait()
+	wait.Wait()
 }
 
 // // 对于多个goroutine
-// var wg sync.WaitGroup
+// var wait sync.WaitGroup
 
 // func Hello(i int) {
 // 	fmt.Println("Hello Goroutine", i)
 // 	// 通知goroutine把计数器 - 1
-// 	wg.Done()
+// 	wait.Done()
 // }
 
 // func main() { // 开启一个主goroutine来执行main函数
 
 // 	// 计数器 + 1
-// 	wg.Add(10000)
+// 	wait.Add(10000)
 // 	// 开启一个goroutine来执行Hello函数
 // 	for i := 0; i < 10000; i++ {
 // 		go Hello(i)
@@ -55,11 +55,11 @@ func main() { // 开启一个主goroutine来执行main函数
 // 	// 	// fmt里的i用到外部的for循环，因此是一个闭包
 // 	// 	go func() {
 // 	// 		fmt.Println("hello", i)
-// 	// 		wg.Done()
+// 	// 		wait.Done()
 // 	// 	}()
 // 	// }
 
 // 	fmt.Println("Hello Main Goroutine")
 // 	// 阻塞，等所有小弟都干完活之后才收兵
-// 	wg.Wait()
+// 	wait.Wait()
 // }

@@ -11,9 +11,9 @@ import (
 // 案例
 
 var (
-	x  int64
-	wg sync.WaitGroup
-	m  sync.Mutex
+	x    int64
+	wait sync.WaitGroup
+	m    sync.Mutex
 )
 
 // 对全局变量x执行100000次 +1 操作
@@ -27,15 +27,15 @@ func add() {
 		// 操作完成后解锁
 		m.Unlock()
 	}
-	wg.Done()
+	wait.Done()
 }
 
 func main() {
-	wg.Add(2)
+	wait.Add(2)
 	// 开启两个goroutine同时操作x
 	go add()
 	go add()
-	wg.Wait()
+	wait.Wait()
 
 	fmt.Println(x)
 
