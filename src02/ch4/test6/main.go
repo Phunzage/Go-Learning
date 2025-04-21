@@ -1,4 +1,4 @@
-// map 和 struct vs new() 和 make()
+// map 和 struct的new() 和 make()区分
 
 // 通过 make 或字面量初始化底层数据：
 // map / slices / channels
