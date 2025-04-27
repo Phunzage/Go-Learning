@@ -17,10 +17,21 @@ func rename() {
 	}
 }
 
-// 删除文件
+// 删除单个文件
 func remove() {
 	// 删除当前目录下所有的文件与子目录
 	err := os.Remove("move.txt")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("删除成功")
+	}
+}
+
+// 删除目录
+func removeall() {
+	// 删除当前目录下所有的文件与子目录
+	err := os.RemoveAll(".")
 	if err != nil {
 		fmt.Println(err)
 	} else {
